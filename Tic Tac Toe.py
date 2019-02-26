@@ -23,6 +23,7 @@ def display_board(board):
 def player_input():
         marker_player1 = input("Player 1 Please pick a marker 'X' or 'O'\n")
         if marker_player1.upper() == 'X':
+            marker_player1 ='X'
             marker_player2 ='O'
             print("Player 1 , your marker is X")
             print("Player 2 , your marker is O")
@@ -31,6 +32,7 @@ def player_input():
             return (marker_player1, marker_player2)
             
         elif marker_player1.upper() == 'O':
+            marker_player1 ='O'
             marker_player2 ='X'
             print("Player 1 , your marker is O")
             print("Player 2 , your marker is X")
@@ -40,6 +42,7 @@ def player_input():
         else:
             print("Please select either X or O")
             player_input()
+        return (marker_player1, marker_player2)
 
         
     
@@ -181,7 +184,7 @@ def ref_board():
     for pos in range(0, 9, 3):
         print(board_dis[pos], board_dis[pos + 1], board_dis[pos + 2])
     print("\n")
-player_input()
+[marker_player1,marker_player2]=player_input()
 toss = random.randint(1,101)
 if toss % 2 == 0:
         accept_position_2()
