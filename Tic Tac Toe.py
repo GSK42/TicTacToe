@@ -28,6 +28,7 @@ def player_input():
             print("Player 2 , your marker is O")
             ref_board()
             display_board(board)
+            return (marker_player1, marker_player2)
             
         elif marker_player1.upper() == 'O':
             marker_player2 ='X'
@@ -35,15 +36,20 @@ def player_input():
             print("Player 2 , your marker is X")
             ref_board()
             display_board(board)
+            return (marker_player1, marker_player2)
         else:
             print("Please select either X or O")
-        return(marker_player1,marker_player2)
+            player_input()
+
         
     
 
 def accept_position_1():
         x1 = int(input("Player 1 Enter position\n"))
         x1 = change_pos(x1)
+        if x1<1 or x1>9:
+            print("Please choose a number between 1 and 9\n")
+            accept_position_1()
         if board[x1-1] != 'X' and board[x1-1] != 'O':
             place_marker(board,marker_player1,x1-1)
         else:
@@ -58,6 +64,9 @@ def accept_position_2():
 
         x2 = int(input("Player 2 Enter position\n"))
         x2 = change_pos(x2)
+        if x2<1 or x2>9:
+            print("Please choose a number between 1 and 9\n")
+            accept_position_2()
         if board[x2-1] != 'X' and board[x2-1] != 'O':
             place_marker(board,marker_player2,x2-1)
         else:
