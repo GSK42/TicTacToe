@@ -40,9 +40,15 @@ def player_input():
             display_board(board)
             return (marker_player1, marker_player2)
         else:
-            print("Please select either X or O")
-            player_input()
-        return (marker_player1, marker_player2)
+            print("Oops,assigning random markers\n")
+            marker_player1 = 'X'
+            marker_player2 = 'O'
+            print("Player 1 , your marker is X")
+            print("Player 2 , your marker is O")
+            ref_board()
+            display_board(board)
+            return (marker_player1, marker_player2)
+
 
         
     
